@@ -13,4 +13,4 @@ else:
 	for user in settings.USER:
 		user_timeline=twitter.get_user_timeline(screen_name=user, count=10, exclude_replies=True, include_rts=False)
 		for tweet in user_timeline:
-			print tweet + "\n"
+			print tweet["text"] + "\n"
