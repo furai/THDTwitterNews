@@ -1,4 +1,4 @@
-import tweepy
+from twython import Twython
 import settings
 
 if not (hasattr(settings, 'ACCESS_TOKEN') and hasattr(settings, "ACCESS_TOKEN_SECRET")):
