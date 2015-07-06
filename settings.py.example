@@ -4,3 +4,6 @@ APP_SECRET = 'TWITTER_APP_SECRET'
 USERS = [
 	"tweetFurai"
 ]
+PATH_TO_SAVE = "/absolute/path/here"
+NEWS_COUNT = 3
+TAG = "#tagNeededForNewsToCount"
