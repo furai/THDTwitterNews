@@ -11,6 +11,6 @@ if not hasattr(settings, 'ACCESS_TOKEN'):
 else:
 	twitter = Twython(settings.APP_KEY, access_token=settings.ACCESS_TOKEN)
 	for user in settings.USER:
-		user_timeline=twitter.get_user_timeline(screen_name=user, count=10, exclude_replies=True, include_rts=False)
+		user_timeline=twitter.get_user_timeline(screen_name=user, exclude_replies=True, include_rts=False)
 		for tweet in user_timeline:
 			print tweet["text"] + "\n"
