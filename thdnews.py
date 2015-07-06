@@ -12,7 +12,15 @@ if not hasattr(settings, 'ACCESS_TOKEN'):
 	print "ACCESS_TOKEN = \"%s\"" % accToken
 else:
 	twitter = Twython(settings.APP_KEY, access_token=settings.ACCESS_TOKEN)
+	news = OrderedDict()
 	for user in settings.USER:
+		news.clear()
+		i = 0
 		user_timeline=twitter.get_user_timeline(screen_name=user, exclude_replies=True, include_rts=False)
 		for tweet in user_timeline:
-			print tweet["text"] + "\n"
+			if (settings.TAG in tweet['text'].lower()) and i < settings.NEWS_COUNT:
+				i += 1
+				news.update({u'tweet'+str(i):{u'text':tweet['text'],u'date':tweet['created_at']}})
+		filename = settings.PATH_TO_SAVE + '/' + user
+		with open(filename, 'w') as outfile:
+		    json.dump(news, outfile)
