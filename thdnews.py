@@ -1,6 +1,7 @@
 from twython import Twython
 from collections import OrderedDict
 import json
+import time
 import settings
 
 if not hasattr(settings, 'ACCESS_TOKEN'):
@@ -20,7 +21,7 @@ else:
 		for tweet in user_timeline:
 			if (settings.TAG in tweet['text'].lower()) and i < settings.NEWS_COUNT:
 				i += 1
-				news.update({u'tweet'+str(i):{u'text':tweet['text'],u'date':tweet['created_at']}})
+				news.update({u'tweet'+str(i):{u'text':tweet['text'],u'date':time.strftime("%Y-%m-%d",time.strptime(tweet['created_at'],"%a %b %d %H:%M:%S +0000 %Y"))}})
 		filename = settings.PATH_TO_SAVE + '/' + user
 		with open(filename, 'w') as outfile:
 		    json.dump(news, outfile)
