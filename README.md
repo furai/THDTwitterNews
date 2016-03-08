@@ -4,7 +4,7 @@ Aim of this small project is to create an twitter rest app that will be run on c
 ## Installation
 - Install python and pip
 - Install virtualenv `sudo pip install virtualenv`
-- Clone this repository `git clone https://github.com/lucasgrzegorczyk/THDTwitterNews.git`
+- Clone this repository `git clone https://github.com/furai/THDTwitterNews.git`
 - cd into THDTwitterNews folder and create virtualenv `virtualenv --no-site-packages envthdnews`
 - Activate virtualenv `source envthdnews/bin/activate`
 - Install pip requirements `pip install -r requirements.txt`
